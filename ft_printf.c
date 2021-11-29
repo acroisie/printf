@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 15:23:44 by acroisie          #+#    #+#             */
-/*   Updated: 2021/11/29 17:40:00 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2021/11/29 18:35:39 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ static int	ft_print_format(va_list argptr, char format_id, int *count)
 	if (format_id == 'c')
 		ft_putchar(va_arg(argptr, int), count);
 	if (format_id == 's')
+		ft_putstr(va_arg(argptr, char *), count);
+	if (format_id == 'p')
 		ft_putstr(va_arg(argptr, char *), count);
 	return (0);
 }
