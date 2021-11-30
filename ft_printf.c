@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 15:23:44 by acroisie          #+#    #+#             */
-/*   Updated: 2021/11/29 18:41:10 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2021/11/30 13:53:23 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,29 @@ static int	char_is_format_id(char c)
 static int	ft_print_format(va_list argptr, char format_id, int *count)
 {
 	if (format_id == '%')
-		return (0);
-	if (format_id == 'c')
+		ft_putchar('%', count);
+	else if (format_id == 'c')
 		ft_putchar(va_arg(argptr, int), count);
-	if (format_id == 's')
+	else if (format_id == 's')
 		ft_putstr(va_arg(argptr, char *), count);
-	if (format_id == 'p')
+	else if (format_id == 'p')
+	{
 		ft_putstr("0x", count);
+		ft_putnbr_base_ul(va_arg(argptr, unsigned long int),
+			"0123456789abcdef", count);
+	}
+	else if (format_id == 'd' || format_id == 'i')
+		ft_putnbr_base(va_arg(argptr, int),
+			"0123456789", count);
+	else if (format_id == 'u')
+		ft_putnbr_base_ul(va_arg(argptr, unsigned int),
+			"0123456789", count);
+	else if (format_id == 'x')
+		ft_putnbr_base_ul(va_arg(argptr, unsigned int),
+			"0123456789abcdef", count);
+	else if (format_id == 'X')
+		ft_putnbr_base_ul(va_arg(argptr, unsigned int),
+			"0123456789ABCDEF", count);
 	return (0);
 }
 
