@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 15:23:44 by acroisie          #+#    #+#             */
-/*   Updated: 2021/11/30 13:53:23 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2021/12/01 10:59:43 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,6 @@ int	ft_printf(const char *format, ...)
 		else
 			ft_putchar(format[i++], &count);
 	}
+	va_end(argptr);
 	return (count);
 }
